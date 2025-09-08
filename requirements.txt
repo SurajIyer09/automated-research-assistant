@@ -1,0 +1,7 @@
+streamlit
+requests
+python-docx
+PyPDF2
+reportlab
+groq
+google-generativeai
