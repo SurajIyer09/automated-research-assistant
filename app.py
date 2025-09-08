@@ -32,10 +32,17 @@ if GEMINI_API_KEY:
 def extract_text_from_pdfs(uploaded_files):
     text = ""
     for uploaded_file in uploaded_files:
-        pdf_reader = PdfReader(uploaded_file)
-        for page in pdf_reader.pages:
-            text += page.extract_text() or ""
+        try:
+            pdf_reader = PdfReader(uploaded_file)
+            for page in pdf_reader.pages:
+                # Extract text and sanitize encoding
+                page_text = page.extract_text() or ""
+                page_text = page_text.encode("utf-8", "ignore").decode("utf-8")
+                text += page_text
+        except Exception as e:
+            st.error(f"⚠️ Error reading {uploaded_file.name}: {e}")
     return text.strip()
+
 
 # ----------- Groq Helper -----------
 def ask_groq(prompt, model_choice):
