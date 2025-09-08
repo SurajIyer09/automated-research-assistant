@@ -2,6 +2,7 @@ streamlit
 requests
 python-docx
 PyPDF2
+python-dotenv
 reportlab
 groq
 google-generativeai
