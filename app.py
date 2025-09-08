@@ -122,7 +122,6 @@ model_choice = st.selectbox(
         "Groq - llama-3.3-70b-versatile",
         "Groq - llama-3.1-8b-instant",
         "Gemini - gemini-1.5-flash",
-        "Gemini - gemini-1.5-pro"
     ],
     index=0
 )
